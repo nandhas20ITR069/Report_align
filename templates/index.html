@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Report Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Project Report Generator</h1>
+    <form action="/generate_docx" method="post">
+      <label for="title">Project Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="abstract">Abstract:</label>
+      <textarea id="abstract" name="abstract" required></textarea>
+
+      <label for="introduction">Introduction:</label>
+      <textarea id="introduction" name="introduction" required></textarea>
+
+      <div id="objectiveSections">
+        <label for="objectives">Objectives:</label>
+        <input type="text" class="objective-input" name="objectives[]" required>
+      </div>
+
+      
+
+      <button type="button" onclick="addObjectiveSection()">Add Objective</button>
+      <button type="submit">Generate Report (docx)</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
